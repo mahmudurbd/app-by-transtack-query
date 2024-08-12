@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const WithoutQuery = () => {
   const [data, setData] = useState([]);
@@ -41,6 +42,13 @@ const WithoutQuery = () => {
 
   return (
     <div className="m-4 max-w-[600px] w-4/5 mx-auto">
+      <div className="text-center">
+        <Link to="/withQuery">
+          <button className="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75 text-center">
+            With Query
+          </button>
+        </Link>
+      </div>
       <h1 className="text-3xl text-center my-8 font-bold text-gray-400">
         Posts Data
       </h1>

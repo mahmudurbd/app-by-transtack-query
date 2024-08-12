@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const WithQuery = () => {
   const getPosts = async () => {
@@ -15,6 +16,7 @@ const WithQuery = () => {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: getPosts,
+    staleTime: 10000,
   });
 
   if (isPending) return <div>Loading...</div>;
@@ -22,6 +24,13 @@ const WithQuery = () => {
 
   return (
     <div className="m-4 max-w-[600px] w-4/5 mx-auto">
+      <div className="text-center">
+        <Link to="/withoutQuery">
+          <button className="bg-violet-500 hover:bg-violet-600 focus:ring  focus:ring-opacity-75 rounded-full text-white font-semibold py-2 px-5">
+            Without Query
+          </button>
+        </Link>
+      </div>
       <h1 className="text-3xl text-center my-8 font-bold text-gray-400">
         Posts Data
       </h1>
